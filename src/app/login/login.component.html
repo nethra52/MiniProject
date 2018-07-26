@@ -1,0 +1,139 @@
+<body>
+  
+
+<div class="container">
+    <header class="main-header clearfix">
+        <img class="logo" src="assets/img/boat_01.jpeg">
+        <h1 class="name" id="txt2">PhotoGalleryLogin<span></span></h1>
+    </header>
+
+    <div class="content clearfix">
+
+        <div class="cube-container">
+            <div class="photo-cube">
+
+                <img class="front"src="assets/img/boat_01.jpeg" alt="">
+                <div class="back photo-desc">
+                  <h3>Please do Login</h3>
+                  <p>Please do login for more images..</p>
+                  <!-- <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.</p> -->
+                    <a routerLink="login" class="button">Login</a>
+                </div>
+                <img class="left" src="assets/img/boat_01.jpeg" alt="">
+                <img class="right" src="assets/img/boat_01.jpeg" alt="">
+
+            </div>
+        </div>  
+
+        <div class="cube-container">
+            <div class="photo-cube">
+
+                <img class="front" src="assets/img/boat_01.jpeg" alt="">
+                <div class="back photo-desc">
+                  <h3>Please do Login</h3>
+                  <p>Please do login for more images..</p>
+                  <!-- <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.</p> -->
+                    <a routerLink="login" class="button">Login</a>
+                </div>
+                <img class="left" src="assets/img/boat_01.jpeg" alt="">
+                <img class="right" src="assets/img/boat_01.jpeg" alt="">
+
+            </div>
+        </div>  
+
+        <div class="cube-container">
+            <div class="photo-cube">
+
+                <img class="front" src="assets/img/boat_01.jpeg" alt="">
+                <div class="back photo-desc">
+                  <h3>Login</h3>
+                  <p>Please do login for more images..</p>
+                  <!-- <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.</p> -->
+                    <a routerLink="login" class="button">Login</a>
+                </div>
+                <img class="left" src="assets/img/boat_01.jpeg" alt="cube1">
+                <img class="right" src="assets/img/boat_01.jpeg" alt="img1">
+
+            </div>
+        </div>  
+
+    </div>
+</div>
+
+
+<form #loginForm="ngForm" (ngSubmit)="authenticateUser(loginForm)">
+    <div class="imgcontainer">
+      <!-- <img src="https://lh3.googleusercontent.com/proxy/deDWVWgDrk6ASPHSohHe1Wm57dMef5nFBb_bmh6-9NMN3SN_a62oTsitN5RW0UqCSUEKmkM3rm3WmwwnWqXkpYvtlA=w530-h297-n" alt="Avatar" class="avatar"> -->
+    </div>
+    <div class="container">
+        {{authenticationResponse.message}}
+      <label for="uname" ><h3 id="txt2">EmailId</h3></label>
+      <input type="text" 
+        required
+        ngModel
+        #emailId="ngModel"
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+        name="emailId"
+        class="form-control input-sm chat-input"
+        placeholder="Enter Email Id" /><br>
+        <div *ngIf="emailId.touched && emailId.invalid">
+          <div *ngIf="emailId.errors.required">emailID should not be empty</div>
+          <div *ngIf="emailId.errors.pattern">enter correct email id</div>
+        </div>
+      <label for="uname" ><h3 id="txt2">Password</h3></label>
+      <input type="password" 
+        required
+        ngModel
+        #password="ngModel"
+        minlength="5"
+        maxlength="10"
+        name="password"
+        class="form-control input-sm chat-input"
+        placeholder="password" /><br>
+      <div *ngIf="password.touched && password.invalid">
+        <div *ngIf="password.errors.required">password should not be empty</div>
+        <div *ngIf="password.errors.minlength">You Should enter atleast 5 characters</div>
+      </div>
+      <!-- <div class="wrapper">
+        <span class="group-btn">     
+            <button class="btn btn-primary btn-md" [disabled]="loginForm.invalid" (click)="registerUser()">Sign Me In</button>
+        </span>
+        </div> -->
+      <button class="btn btn-primary btn-md" [disabled]="loginForm.invalid" >Sign Me In!</button>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+
+</body>
+
+
+<!-- <form #loginForm="ngForm" (ngSubmit)="loginDetails(loginForm)">
+  <div class="imgcontainer">
+    <img src="/assets/cinema2.jpg" alt="Avatar" class="avatar">
+  </div>
+  <div class="container">
+      {{authenticationResponse.message}}
+    <label for="uname"><b>emailId</b></label>
+    <input type="email"  required ngModel #emailId="ngModel" minlength="1"  name="emailId" class="form-control input-sm chat-input" placeholder="emailId" /><br>
+    <div *ngIf="emailId.touched && emailId.invalid">
+          <div *ngIf="emailId.errors.required">emailId should not be empty</div>
+          <div *ngIf="emailId.errors.minlength">You Should enter atleast 6 characters</div>
+    </div>
+    <label for="psw"><b>password</b></label>
+    <input type="password" required ngModel #password="ngModel" minlength="5" maxlength="10" name="password" class="form-control input-sm chat-input" placeholder="password" /><br>
+    <div *ngIf="password.touched && password.invalid">
+      <div *ngIf="password.errors.required">password should not be empty</div>
+      <div *ngIf="password.errors.minlength">You Should enter atleast 5 characters</div>
+    </div>
+            // <button (click)="authenticateUser()">Sign Me In!</button>
+            <button   class="btn btn-primary btn-md"[disabled]="loginForm.invalid">login</button>
+  </div>
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form> 
+ -->

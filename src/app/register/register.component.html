@@ -1,0 +1,194 @@
+<div class="container">
+    <header class="main-header clearfix">
+        <img class="logo" src="assets/img/boat_01.jpeg">
+        <h1 class="name" id="txt3">PhotoGalleryRegister<span></span></h1>
+    </header>
+
+    <div class="content clearfix">
+
+        <div class="cube-container">
+            <div class="photo-cube">
+
+                <img class="front"src="assets/img/boat_01.jpeg" alt="">
+                <div class="back photo-desc">
+                  <h3>Please do Register</h3>
+                  <p>Please do Register for more images</p>
+                    <a href="#" class="button">Register</a>
+                </div>
+                <img class="left" src="assets/img/boat_01.jpeg" alt="">
+                <img class="right" src="assets/img/boat_01.jpeg" alt="">
+
+            </div>
+        </div>  
+
+        <div class="cube-container">
+            <div class="photo-cube">
+
+                <img class="front" src="assets/img/boat_01.jpeg" alt="">
+                <div class="back photo-desc">
+                    <h3>Please do Register</h3>
+                    <p>Please do Register for more images</p>
+                    <a href="#" class="button">Register</a>
+                </div>
+                <img class="left" src="assets/img/boat_01.jpeg" alt="">
+                <img class="right" src="assets/img/boat_01.jpeg" alt="">
+
+            </div>
+        </div>  
+
+        <div class="cube-container">
+            <div class="photo-cube">
+
+                <img class="front" src="assets/img/boat_01.jpeg" alt="">
+                <div class="back photo-desc">
+                    <h3>Please do Register</h3>
+                    <p>Please do Register for more images</p>
+                    <a href="#" class="button">Register</a>
+                </div>
+                <img class="left" src="assets/img/boat_01.jpeg" alt="cube1">
+                <img class="right" src="assets/img/boat_01.jpeg" alt="img1">
+
+            </div>
+        </div>  
+
+    </div>
+</div>
+
+
+
+
+
+<form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
+    <div class="imgcontainer">
+      <!-- <img src="https://lh3.googleusercontent.com/proxy/deDWVWgDrk6ASPHSohHe1Wm57dMef5nFBb_bmh6-9NMN3SN_a62oTsitN5RW0UqCSUEKmkM3rm3WmwwnWqXkpYvtlA=w530-h297-n" alt="Avatar" class="avatar"> -->
+    </div>
+    <div class="container">
+      {{registerResponse.message}}
+      <label for="uname"><h3 id="txt3">First Name</h3></label>
+            <input type="text" 
+              required
+              ngModel
+              #firstName="ngModel"
+              minlength="1"
+              maxlength="10"
+              name="firstName"
+              class="form-control input-sm chat-input"
+              placeholder="first name" /><br>
+              <div *ngIf="firstName.touched && firstName.invalid">
+                <div *ngIf="firstName.errors.required">first name should not be empty</div>
+                <div *ngIf="firstName.errors.minlength">You Should enter atleast 6 characters</div>
+              </div>
+              <label for="uname"><h3 id="txt3">Last Name</h3></label>
+            <input type="text" 
+              required
+              ngModel
+              #lastName="ngModel"
+              minlength="1"
+              maxlength="10"
+              name="lastName"
+              class="form-control input-sm chat-input"
+              placeholder="last name" /><br>
+              <div *ngIf="lastName.touched && lastName.invalid">
+                <div *ngIf="lastName.errors.required">last name should not be empty</div>
+                <div *ngIf="lastName.errors.minlength">You Should enter atleast 6 characters</div>
+              </div>
+      <label for="uname"><h3 id="txt3">emailId</h3></label>
+      <input type="text" 
+              required
+              ngModel
+              #emailId="ngModel"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+              name="emailId"
+              class="form-control input-sm chat-input"
+              placeholder="Enter Email Id" /><br>
+              <div *ngIf="emailId.touched && emailId.invalid">
+                <div *ngIf="emailId.errors.required">emailID should not be empty</div>
+                <div *ngIf="emailId.errors.pattern">enter correct email id</div>
+              </div>
+      <label for="uname"><h3 id="txt3">Password</h3></label>
+      <input type="password" 
+              required
+              ngModel
+              #password="ngModel"
+              minlength="1"
+              maxlength="10"
+              name="password"
+              class="form-control input-sm chat-input"
+              placeholder="password" /><br>
+              <div *ngIf="password.touched && password.invalid">
+                <div *ngIf="password.errors.required">password should not be empty</div>
+                <div *ngIf="password.errors.minlength">You Should enter atleast 5 characters</div>
+              </div>
+      <label for="uname"><h3 id="txt3">Mobile Number</h3></label>
+        <input type="number" 
+              required
+              ngModel
+              #mobileNumber="ngModel"
+              minlength="10"
+              maxlength="10"
+              name="mobileNumber"
+              class="form-control input-sm chat-input"
+              placeholder="mobilenumber" /><br>
+              <div *ngIf="mobileNumber.touched && mobileNumber.invalid">
+                <div *ngIf="mobileNumber.errors.required">mobile number should not be empty</div>
+              </div>
+              <div class="wrapper">
+                <span class="group-btn">     
+                    <button class="btn btn-primary btn-md" [disabled]="registerForm.invalid">Register Me!</button>
+                </span>
+                </div>
+      <!-- <button class="btn btn-primary btn-md" [disabled]="loginForm.invalid" (click)="registerUser()">Register Me!</button> -->
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+  
+
+
+
+<!-- <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
+  <div class="mycontainer">
+  <div class="imgcontainer">
+    <img src="/assets/cinema2.jpg" alt="Avatar" class="avatar">
+  </div>
+  <div class="container">
+    {{registerResponse.message}}
+    <label for="firstName"><b>FirstName</b></label>
+    <input type="text"  required ngModel #firstName="ngModel" minlength="1" maxlength="10" name="firstName" class="form-control input-sm chat-input" placeholder="firstName" /><br>
+    <div *ngIf="firstName.touched  && firstname.invalid">
+          <div *ngIf="firstName.errors.required">firstName should not be empty</div>
+          <div *ngIf="firstName.errors.minlength">You Should enter atleast 6 characters</div>
+    </div>
+
+    <label for="lname"><b>lastName</b></label>
+    <input type="text"  required ngModel #lastName="ngModel" minlength="1" maxlength="10" name="lastName" class="form-control input-sm chat-input" placeholder="lastname" /><br>
+    <div *ngIf="lastName.touched && lastName.invalid">
+          <div *ngIf="lastName.errors.required">lastname should not be empty</div>
+          <div *ngIf="lastName.errors.minlength">You Should enter atleast 6 characters</div>
+    </div>    
+    
+    <label for="emailId"><b>emailId</b></label>
+    <input type="email"  required ngModel #emailId="ngModel" minlength="1"  name="emailId" class="form-control input-sm chat-input" placeholder="emailId" /><br>
+    <div *ngIf="emailId.touched && emailId.invalid">
+          <div *ngIf="emailId.errors.required">emailId should not be empty</div>
+          <div *ngIf="emailId.errors.minlength">You Should enter atleast 6 characters</div>
+    </div>    
+
+    <label for="psw"><b>password</b></label>
+    <input type="password"  required ngModel #password="ngModel" minlength="1"  name="password" class="form-control input-sm chat-input" placeholder="password" /><br>
+    <div *ngIf="password.touched && password.invalid">
+          <div *ngIf="password.errors.required">password should not be empty</div>
+          <div *ngIf="password.errors.minlength">You Should enter atleast 6 characters</div>
+    </div>  
+
+  <label for="uname"><b>Mobile Number</b></label>
+  <input type="number" placeholder= "Mobile Number" [(ngModel)]="mobileNumber" name="mobileNumber" >
+    <button  class="btn btn-primary btn-md">Register</button>  </div>
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</div>
+</form> -->
